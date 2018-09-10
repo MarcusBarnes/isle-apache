@@ -111,7 +111,7 @@ RUN add-apt-repository -y ppa:ondrej/apache2 && \
     libleptonica-dev" && \
     apt-get update && \
     apt-get install --no-install-recommends -y $FFMPEG_PACKS $APACHE_PACKS && \
-    ## PHP conf  
+    ## PHP conf
     phpdismod xdebug && \
     ## memory_limit = -1?
     sed -i 's/memory_limit = .*/memory_limit = '256M'/' /etc/php/5.6/apache2/php.ini && \
@@ -229,7 +229,8 @@ RUN useradd --comment 'Islandora User' --no-create-home -d /var/www/html --syste
     ## BUILD TOOLS
     mkdir /utility-scripts && \
     cd /utility-scripts && \
-    git clone https://github.com/Islandora-Collaboration-Group/isle_drupal_build_tools.git && \
+    ##git clone https://github.com/Islandora-Collaboration-Group/isle_drupal_build_tools.git && \
+    git clone https://github.com/MarcusBarnes/isle_drupal_build_tools && \
     ## Disable Default
     a2dissite 000-default && \
     a2enmod rewrite deflate headers expires proxy proxy_http proxy_html proxy_connect remoteip xml2enc && \
